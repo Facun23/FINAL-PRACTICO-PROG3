@@ -1,6 +1,14 @@
-package main.controller;
+package unlar.com.isi.main.controller;
+
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import unlar.com.isi.main.dto.DevolucionRequestDTO;
+import unlar.com.isi.main.model.*;
+import unlar.com.isi.main.model.Socio;
+import unlar.com.isi.main.model.SocioPremiun;
+import unlar.com.isi.main.model.SocioRegular;
+import unlar.com.isi.main.model.multa.*;
+import unlar.com.isi.main.service.PrestamoService;
 
 @RestController
 @RequestMapping("/api")
@@ -12,16 +20,16 @@ public class BiblioController {
         this.prestamoService = prestamoService;
     }
 
-    @PostMapping("/prestamos/prestar")
+    @PostMapping("/api/prestamos/prestar")
     public Material prestarMaterial(@RequestParam String codigo) {
         return prestamoService.prestar(codigo);
     }
 
-    @PostMapping("/prestamos/devolver")
+    @PostMapping("/api/prestamos/devolver")
     public double devolverMaterial(@RequestBody DevolucionRequestDTO request) {
         
         Socio socio = request.getTipoSocio().equalsIgnoreCase("premium") 
-                ? new SocioPremium(1, "Socio Premium") 
+                ? new SocioPremiun(1, "Socio Premium") 
                 : new SocioRegular(2, "Socio Regular");
 
         MultaStrategy estrategia;
@@ -40,12 +48,12 @@ public class BiblioController {
         return prestamoService.devolver(request.getCodigo(), socio, request.getDiasAtraso(), estrategia);
     }
 
-    @GetMapping("/materiales/disponibles")
+    @GetMapping("/api/materiales/disponibles")
     public List<Material> obtenerMaterialesDisponibles() {
         return prestamoService.listarDisponibles();
     }
 
-    @PostMapping("/socios/depurar-duplicados")
+    @PostMapping("/api/socios/depurar-duplicados")
     public List<String> depurarDnis(@RequestBody List<String> dnis) {
         return prestamoService.depurarDnis(dnis);
     }

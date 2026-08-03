@@ -1,4 +1,4 @@
-package main.dto;
+package unlar.com.isi.main.dto;
 
 import lombok.Data;
 

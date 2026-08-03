@@ -1,10 +1,14 @@
-package main.service;
+package unlar.com.isi.main.service;
 
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import unlar.com.isi.main.model.*;
+import unlar.com.isi.main.model.multa.MultaStrategy;
+import unlar.com.isi.main.repository.MaterialRepository;
+
 
 @Service
 public class PrestamoService {

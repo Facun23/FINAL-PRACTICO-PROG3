@@ -1,4 +1,4 @@
-package main.model;
+package unlar.com.isi.main.model;
 
 public class SocioRegular extends Socio{
 

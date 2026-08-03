@@ -1,4 +1,4 @@
-package main.model.multa;
+package unlar.com.isi.main.model.multa;
 
 public class MultaCampania implements MultaStrategy {
     @Override

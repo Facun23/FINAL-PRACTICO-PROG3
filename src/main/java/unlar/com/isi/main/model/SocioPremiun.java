@@ -1,4 +1,5 @@
-package main.model;
+package unlar.com.isi.main.model;
+
 
 public class SocioPremiun extends Socio {
     public SocioPremiun(int id, String nombre){

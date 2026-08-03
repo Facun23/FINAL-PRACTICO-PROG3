@@ -1,9 +1,11 @@
-package main.repository;
+package unlar.com.isi.main.repository;
 
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import unlar.com.isi.main.model.*;
+
 
 @Repository
 public class MaterialRepository {
@@ -11,8 +13,8 @@ public class MaterialRepository {
 
     public MaterialRepository() {
         //DATOS DE PRUEBA
-        materiales.add(new Libro("L001", "El Señor de los Anillos", true, "J.R.R. Tolkien"));
-        materiales.add(new Revista("R001", "National Geographic", true, 202));
+        materiales.add(new Libro("L001", "El Señor de los Anillos", "J.R.R. Tolkien", true));
+        materiales.add(new Revista(202, "R001", "National Geographic", true));
     }
 
     public Material buscarPorCodigo(String codigo) {
