@@ -16,6 +16,7 @@ public class BibliotecaController {
     public Material prestarMaterial(@RequestParam String codigo){
         return prestamoService.prestar(codigo);
     }
+
     @PostMapping("/api/prestamos/devolver")
     public double devolverMaterial(
         @RequestParam String codigo,
@@ -25,7 +26,7 @@ public class BibliotecaController {
 
     }
 
-    @GetMapping("/materiales/disponibles")
+    @GetMapping("/api/materiales/disponibles")
     public List<Material> obtenerMaterialesDisponibles() {
         return prestamoService.listarDisponibles();
     }
